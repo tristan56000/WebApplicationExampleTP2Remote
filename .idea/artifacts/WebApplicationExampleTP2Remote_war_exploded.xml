@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="WebApplicationExampleTP2Remote:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/WebApplicationExampleTP2Remote_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="WebApplicationExampleTP2Remote/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="WebApplicationExampleTP2Remote" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
