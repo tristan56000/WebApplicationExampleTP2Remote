@@ -11,7 +11,7 @@ Start *Tomcat* server through *IntelliJ*
 
 ### In docker
 
-You will be able to start the *WebApplicationExampleTP2Remote_war.war* file into a docker container following this readme:
+You will be able to start the *GUERIN.war* file into a docker container following this readme:
 
 Start the docker terminal in this directory
 
@@ -20,7 +20,7 @@ Create a container for the *.war*:
 
 Execute the following commands which will copy the *.war* and several *Tomcat* configurations files:
 
-<br/>`docker cp out/artifacts/WebApplicationExampleTP2Remote_war/WebApplicationExampleTP2Remote_war.war remote-tomcat:/usr/local/tomcat/webapps/WebApplicationExampleTP2Remote_war.war`<br/>
+<br/>`docker cp out/artifacts/GUERIN_war/GUERIN.war remote-tomcat:/usr/local/tomcat/webapps/GUERIN.war`<br/>
 <br/>`docker cp afterToUpdate/context.xml remote-tomcat:/usr/local/tomcat/conf/context.xml`<br/>
 <br/>`docker cp afterToUpdate/key remote-tomcat:/usr/local/tomcat/conf/key`<br/>
 <br/>`docker cp afterToUpdate/server.xml remote-tomcat:/usr/local/tomcat/conf/server.xml`<br/>
@@ -33,7 +33,7 @@ You can now start the container:
 
 You can go now to your web browser and type :<br/>
 
-https://localhost:8443/WebApplicationExampleTP2Remote_war/ (if you use Docker)<br/>
-https://192.168.99.100:8443/WebApplicationExampleTP2Remote_war/ (if you use Docker Toolbox)
+https://localhost:8443/GUERIN/ (if you use Docker)<br/>
+https://192.168.99.100:8443/GUERIN/ (if you use Docker Toolbox)
 
 (All the connections to a DBMS might not work if you don't have a container holding a DBMS)

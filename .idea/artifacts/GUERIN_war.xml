@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="GUERIN:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/GUERIN_war</output-path>
+    <root id="archive" name="GUERIN.war">
+      <element id="artifact" artifact-name="WebApplicationExampleTP2Remote:war exploded" />
+    </root>
+  </artifact>
+</component>
