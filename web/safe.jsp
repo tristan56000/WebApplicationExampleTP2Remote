@@ -1,9 +1,7 @@
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.Connection" %>
-<%@ page import="java.sql.DriverManager" %>
 <%@ page import="java.sql.PreparedStatement" %>
 <%@ page import="fr.ensibs.files.Constants" %>
-<%@ page import="fr.ensibs.files.Encryption" %>
 <%@ page import="fr.ensibs.files.DatabaseConnection" %><%--
   Created by IntelliJ IDEA.
   User: trist

@@ -1,5 +1,4 @@
 <%@ page import="fr.ensibs.files.Constants" %>
-<%@ page import="fr.ensibs.files.Encryption" %>
 <%@ page import="fr.ensibs.files.DatabaseConnection" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.Connection" %>

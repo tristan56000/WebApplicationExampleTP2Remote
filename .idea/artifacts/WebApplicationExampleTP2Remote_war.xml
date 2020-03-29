@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="war" name="WebApplicationExampleTP2Remote:war">
     <output-path>$PROJECT_DIR$/out/artifacts/WebApplicationExampleTP2Remote_war</output-path>
-    <root id="archive" name="WebApplicationExampleTP2Remote_war.war">
+    <root id="archive" name="GUERIN_war_war.war">
       <element id="artifact" artifact-name="WebApplicationExampleTP2Remote:war exploded" />
     </root>
   </artifact>

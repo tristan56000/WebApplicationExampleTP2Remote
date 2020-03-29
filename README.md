@@ -21,10 +21,9 @@ Create a container for the *.war*:
 Execute the following commands which will copy the *.war* and several *Tomcat* configurations files:
 
 <br/>`docker cp out/artifacts/WebApplicationExampleTP2Remote_war/WebApplicationExampleTP2Remote_war.war remote-tomcat:/usr/local/tomcat/webapps/WebApplicationExampleTP2Remote_war.war`<br/>
-<br/>`docker cp toUpdate/context.xml remote-tomcat:/usr/local/tomcat/conf/context.xml`<br/>
-<br/>`docker cp toUpdate/key remote-tomcat:/usr/local/tomcat/conf/key`<br/>
-<br/>`docker cp toUpdate/server.xml remote-tomcat:/usr/local/tomcat/conf/server.xml`<br/>
-<br/>`docker cp toUpdate/tomcat-users.xml remote-tomcat:/usr/local/tomcat/conf/tomcat-users.xml`<br/>
+<br/>`docker cp afterToUpdate/context.xml remote-tomcat:/usr/local/tomcat/conf/context.xml`<br/>
+<br/>`docker cp afterToUpdate/key remote-tomcat:/usr/local/tomcat/conf/key`<br/>
+<br/>`docker cp afterToUpdate/server.xml remote-tomcat:/usr/local/tomcat/conf/server.xml`<br/>
 
 
 You can now start the container:

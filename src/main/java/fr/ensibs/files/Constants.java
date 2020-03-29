@@ -1,7 +1,5 @@
 package fr.ensibs.files;
 
-import javax.crypto.spec.SecretKeySpec;
-
 /**
  * Class gathering all the constants
  * @author Tristan Guerin
@@ -18,15 +16,4 @@ public class Constants {
      * New table of the database
      */
     public static final String table = "user";
-
-    /**
-     * Password of the AES algorithm to encrypt/decrypt the database's table
-     */
-    public static final String AESpassword = "sqlfdgjiwolalolawolalolasqlfdgji";
-
-    /**
-     * AES key
-     */
-    public static final SecretKeySpec AESKey = new SecretKeySpec(Constants.AESpassword.getBytes(),"AES");
-
 }

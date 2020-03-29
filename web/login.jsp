@@ -1,5 +1,4 @@
-<%@ page import="fr.ensibs.files.Constants" %>
-<%@ page import="fr.ensibs.files.Encryption" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: trist
   Date: 23/03/2020
