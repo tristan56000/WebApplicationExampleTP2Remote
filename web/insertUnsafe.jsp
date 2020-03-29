@@ -19,7 +19,7 @@
 <a href= "logout.jsp">Logout</a>
 <%
     String db = Constants.database;
-    String table = Constants.tableEncrypted;
+    String table = Constants.table;
     Connection connection = null;
 
     try {
@@ -27,17 +27,19 @@
         String passwordForm = request.getParameter("password");
         String salaryForm = request.getParameter("salary");
         String ageForm = request.getParameter("age");
+        String roleForm = request.getParameter("role");
 
         if(connection == null || connection.isClosed()){
             connection = DatabaseConnection.getConnection();
         }
 
-        String sqlStatement = "INSERT INTO "+db+"."+table+"(name,password,salary,age) values(?, ?, ?, ?)";
+        String sqlStatement = "INSERT INTO "+db+"."+table+"(name,password,salary,age,role) values(?, ?, ?, ?, ?)";
         PreparedStatement preparedStatement = connection.prepareStatement(sqlStatement);
-        try{preparedStatement.setString(1,Encryption.encrypt(nameForm,Constants.AESKey));}catch (Exception e){preparedStatement.setString(1, Encryption.encrypt("",Constants.AESKey));}
-        try{preparedStatement.setString(2,Encryption.encrypt(passwordForm,Constants.AESKey));}catch (Exception e){preparedStatement.setString(2,Encryption.encrypt("",Constants.AESKey));}
-        try{preparedStatement.setString(3,Encryption.encrypt(salaryForm,Constants.AESKey));}catch (Exception e){preparedStatement.setString(3,Encryption.encrypt("0",Constants.AESKey));}
-        try{preparedStatement.setString(4,Encryption.encrypt(ageForm,Constants.AESKey));}catch (Exception e){preparedStatement.setString(4,Encryption.encrypt("0",Constants.AESKey));}
+        try{preparedStatement.setString(1,nameForm);}catch (Exception e){preparedStatement.setString(1,"");}
+        try{preparedStatement.setString(2,Encryption.hashPassword(passwordForm));}catch (Exception e){preparedStatement.setString(2,"");}
+        try{preparedStatement.setInt(3, Integer.parseInt(salaryForm));}catch (Exception e){preparedStatement.setInt(3,0);}
+        try{preparedStatement.setInt(4, Integer.parseInt(ageForm));}catch (Exception e){preparedStatement.setInt(4,0);}
+        try{preparedStatement.setString(5,roleForm);}catch (Exception e){preparedStatement.setString(5,"");}
         int result = preparedStatement.executeUpdate();
         preparedStatement.close();
 
@@ -50,6 +52,7 @@
             Password:<%out.println(passwordForm);%><br/>
             Salary:<%out.println(salaryForm);%><br/>
             Age:<%out.println(ageForm);%><br/>
+            Role:<%out.println(roleForm);%><br/>
         </p>
         <%
     } catch (Exception e) {

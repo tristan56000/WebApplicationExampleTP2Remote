@@ -1,24 +1,46 @@
 package fr.ensibs.files;
 
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
-import java.nio.charset.StandardCharsets;
-import java.util.Base64;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 /**
- * Represents the AES symetric protocol used to encrypt/decrypt messages
+ * Class providing a method to hash a password
  * @author Tristan Guerin
- * @version 1
+ * @version 2
  */
 public class Encryption {
 
+
+    public static String hashPassword(String input) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-512");
+            byte[] messageDigest = md.digest(input.getBytes());
+            BigInteger no = new BigInteger(1, messageDigest);
+            String hashtext = no.toString(16);
+
+            while (hashtext.length() < 32) {
+                hashtext = "0" + hashtext;
+            }
+
+            // return the HashText
+            return hashtext;
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+
+
+    /*
     /**
      * Encrypts a string using AES symmetric protocol
      * @param strToEncrypt string to encrypt
      * @param secretKeySpec secret key used to encrypt
      * @return string encrypted
-     */
+
     public static String encrypt(String strToEncrypt, SecretKeySpec secretKeySpec){
         try{
             byte[] iv = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -38,7 +60,7 @@ public class Encryption {
      * @param strToDecrypt string to decrypt
      * @param secretKeySpec secret key used to decrypt
      * @return string decrypted
-     */
+
     public static String decrypt(String strToDecrypt, SecretKeySpec secretKeySpec){
         try{
             byte[] iv = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };

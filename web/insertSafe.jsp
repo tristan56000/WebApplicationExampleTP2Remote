@@ -20,13 +20,14 @@
 <a href= "logout.jsp">Logout</a>
 <%
     String db = Constants.database;
-    String table = Constants.tableEncrypted;
+    String table = Constants.table;
     Connection connection = null;
     try {
         String nameForm = request.getParameter("name");
         String passwordForm = request.getParameter("password");
         String salaryForm = request.getParameter("salary");
         String ageForm = request.getParameter("age");
+        String roleForm = request.getParameter("role");
 
         String regexName = "([a-zA-Z])*";
         if(!Pattern.matches(regexName,nameForm)){
@@ -43,17 +44,21 @@
         if(!Pattern.matches(regexInt,ageForm)){
             throw new Exception("Regex error on the age in the form");
         }
+        if(!Pattern.matches(regexName,roleForm)){
+            throw new Exception("Regex error on the role in the form");
+        }
 
 
         if(connection == null || connection.isClosed()){
             connection = DatabaseConnection.getConnection();
         }
-        String sqlStatement = "INSERT INTO "+db+"."+table+"(name,password,salary,age) values(?, ?, ?, ?)";
+        String sqlStatement = "INSERT INTO "+db+"."+table+"(name,password,salary,age,role) values(?, ?, ?, ?, ?)";
         PreparedStatement preparedStatement = connection.prepareStatement(sqlStatement);
-        preparedStatement.setString(1, Encryption.encrypt(nameForm,Constants.AESKey));
-        preparedStatement.setString(2,Encryption.encrypt(passwordForm,Constants.AESKey));
-        preparedStatement.setString(3,Encryption.encrypt(salaryForm,Constants.AESKey));
-        preparedStatement.setString(4,Encryption.encrypt(ageForm,Constants.AESKey));
+        preparedStatement.setString(1, nameForm);
+        preparedStatement.setString(2,Encryption.hashPassword(passwordForm));
+        preparedStatement.setInt(3, Integer.parseInt(salaryForm));
+        preparedStatement.setInt(4, Integer.parseInt(ageForm));
+        preparedStatement.setString(5,roleForm);
         int result = preparedStatement.executeUpdate();
         preparedStatement.close();
         connection.close();
@@ -64,6 +69,7 @@
             Password:<%out.println(passwordForm);%><br/>
             Salary:<%out.println(salaryForm);%><br/>
             Age:<%out.println(ageForm);%><br/>
+            Role:<%out.println(roleForm);%><br/>
         </p>
         <%
     } catch (Exception e) {

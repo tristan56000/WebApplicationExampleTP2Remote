@@ -8,7 +8,7 @@
         <!-- web resources that are protected -->
         <web-resource-collection>
             <web-resource-name>Protected Page</web-resource-name>
-            <!-- Change the url-pattern to /* or /wallah-->
+            <!-- Change the url-pattern to /* to enable or /somethingelse to disable-->
             <url-pattern>/*</url-pattern>
             <http-method>GET</http-method><http-method>HEAD</http-method>
             <http-method>POST</http-method><http-method>PATCH</http-method>

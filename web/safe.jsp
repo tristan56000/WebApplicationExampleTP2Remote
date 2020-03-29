@@ -22,7 +22,7 @@
 <a href= "logout.jsp">Logout</a>
 <div class="info">
     <% String id = request.getParameter("user");
-        String table = Constants.tableEncrypted;
+        String table = Constants.table;
         ResultSet resultSet1= null;
         Connection connection = null;
         try {
@@ -37,10 +37,11 @@
             while (resultSet1.next()){
                 out.println("<div><a>Details :</a>" +
                         "<div><a>ID :"+ resultSet1.getString("id")+"</a></div>" +
-                        "<div><a>Name :"+Encryption.decrypt(resultSet1.getString("name"),Constants.AESKey)+"</a></div>" +
-                        "<div><a>Password :"+Encryption.decrypt(resultSet1.getString("password"),Constants.AESKey)+"</a></div>" +
-                        "<div><a>Salary :"+Encryption.decrypt(resultSet1.getString("salary"),Constants.AESKey)+"</a></div>" +
-                        "<div><a>Age :"+Encryption.decrypt(resultSet1.getString("age"),Constants.AESKey)+"</a></div>" +
+                        "<div><a>Name :"+resultSet1.getString("name")+"</a></div>" +
+                        "<div><a>Password :"+resultSet1.getString("password")+"</a></div>" +
+                        "<div><a>Salary :"+resultSet1.getString("salary")+"</a></div>" +
+                        "<div><a>Age :"+resultSet1.getString("age")+"</a></div>" +
+                        "<div><a>Role :"+resultSet1.getString("role")+"</a></div>" +
                         "</div>");
             }
         } catch (Exception e) {

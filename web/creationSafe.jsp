@@ -23,6 +23,8 @@
         <input type="text" name="salary"><br/>
         <label>Enter your age: </label>
         <input type="text" name="age"><br/>
+        <label>Enter your role: </label>
+        <input type="text" name="role"><br/>
         <input type="submit" value="Register">
     </div>
 </form>

@@ -17,7 +17,7 @@ public class Constants {
     /**
      * New table of the database
      */
-    public static final String tableEncrypted = "user";
+    public static final String table = "user";
 
     /**
      * Password of the AES algorithm to encrypt/decrypt the database's table

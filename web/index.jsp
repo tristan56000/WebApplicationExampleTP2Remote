@@ -21,7 +21,7 @@
 App Web
 <h1>Connection status</h1>
 <%
-    String table = Constants.tableEncrypted;
+    String table = Constants.table;
     ResultSet resultSet = null;
     Statement statement = null;
     Connection connection = null;
@@ -63,7 +63,7 @@ App Web
 
     %>
     <tr>
-        <td><%out.println(Encryption.decrypt(resultSet.getString("name"),Constants.AESKey));%></td>
+        <td><%out.println(resultSet.getString("name"));%></td>
         <td><%out.println("<a href= unsafe.jsp?user="+ resultSet.getString("id")+">Unsafe details page</a>");%></td>
         <td><%out.println("<a href= safe.jsp?user="+ resultSet.getString("id")+">Safe details page</a>");%></td>
     </tr>
