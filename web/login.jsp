@@ -1,4 +1,5 @@
-<%--
+<%@ page import="fr.ensibs.files.Constants" %>
+<%@ page import="fr.ensibs.files.Encryption" %><%--
   Created by IntelliJ IDEA.
   User: trist
   Date: 23/03/2020
@@ -12,7 +13,7 @@
 </head>
 <body>
 
-<form method="post" action="j_security_check">
+<form name="loginForm" method="post" action="j_security_check">
     <table border = "0">
         <tr>
             <td>Login</td>
